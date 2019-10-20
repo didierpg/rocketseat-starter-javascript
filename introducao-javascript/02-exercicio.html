@@ -1,0 +1,27 @@
+<html>
+
+<head>
+  <title></title>
+</head>
+
+<body>
+  <script>
+    function pares(x, y) {
+
+      pares = [];
+      for (i = x; i <= y; i++) {
+        if (i % 2 === 0) {
+          pares.push(i);
+        }
+      }
+
+      return pares;
+    }
+
+    document.write(pares(0, 999));
+    console.log(pares(0, 999));
+
+  </script>
+</body>
+
+</html>
