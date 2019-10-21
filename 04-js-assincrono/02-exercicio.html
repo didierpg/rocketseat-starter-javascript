@@ -1,0 +1,40 @@
+<html>
+
+<head>
+  <title></title>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+  <input type="text" id="usuario" value="didierpg" />
+  <button onclick="adicionarRepositorios()">Adicionar</button>
+  <div id="resultado">
+
+  </div>
+  <script>
+
+    function adicionarRepositorios() {
+
+      var usuario = document.getElementById('usuario');
+      var div = document.getElementById('resultado');
+      div.innerHTML = '';
+      axios.get(`https://api.github.com/users/${usuario.value}/repos`)
+        .then(function (response) {
+          var ul = document.createElement('ul');
+          repositorios = response.data;
+          for (repositorio of repositorios) {
+            var li = document.createElement('li');
+            li.innerHTML = repositorio.name;
+            ul.appendChild(li);
+          }
+          div.appendChild(ul);
+        })
+        .catch(function (error) {
+          console.warn(error);
+        });
+
+    }
+  </script>
+</body>
+
+</html>

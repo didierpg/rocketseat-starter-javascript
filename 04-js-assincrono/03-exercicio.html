@@ -1,0 +1,42 @@
+<html>
+
+<head>
+  <title></title>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+  <input type="text" id="usuario" value="diego3g" />
+  <button onclick="adicionarRepositorios()">Adicionar</button>
+  <div id="resultado">
+
+  </div>
+  <script>
+
+    function adicionarRepositorios() {
+
+      var usuario = document.getElementById('usuario');
+      var div = document.getElementById('resultado');
+      div.innerHTML = 'Carregando...'
+      axios.get(`https://api.github.com/userss/${usuario.value}/repos`)
+        .then(function (response) {
+          div.innerHTML = '';
+          var ul = document.createElement('ul');
+          repositorios = response.data;
+          for (repositorio of repositorios) {
+            var li = document.createElement('li');
+            li.innerHTML = repositorio.name;
+            ul.appendChild(li);
+          }
+          div.appendChild(ul);
+        })
+        .catch(function (error) {
+          div.innerHTML = 'Usuário não encontrado!'
+          console.warn(error);
+        });
+    }
+    // Perdi a paciência com estes exercícios D:
+  </script>
+</body>
+
+</html>

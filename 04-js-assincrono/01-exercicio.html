@@ -1,0 +1,32 @@
+<html>
+
+<head>
+  <title></title>
+</head>
+
+<body>
+  <script>
+
+    function checaIdade(idade) {
+      return new Promise(function (resolve, reject) {
+        setTimeout(function () {
+          idade > 18 ? resolve() : reject();
+        }, 2000)
+      }
+
+      )
+    }
+    checaIdade(20)
+      .then(function () {
+        document.write("Maior que 18");
+        console.log("Maior que 18");
+      })
+      .catch(function () {
+        documet.write("Menor que 18");
+        console.log("Menor que 18");
+      });
+
+  </script>
+</body>
+
+</html>
