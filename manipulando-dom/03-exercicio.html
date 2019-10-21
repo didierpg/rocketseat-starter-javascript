@@ -1,0 +1,22 @@
+<html>
+
+<head>
+  <title></title>
+</head>
+
+<body>
+  <ul id="lista"></ul>
+  <script>
+
+
+    var nomes = ["Diego", "Gabriel", "Lucas"];
+    var ul = document.getElementById('lista');
+    for (nome of nomes) {
+      var li = document.createElement('li');
+      li.innerHTML = nome;
+      ul.appendChild(li);
+    }
+  </script>
+</body>
+
+</html>

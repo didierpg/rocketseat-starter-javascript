@@ -1,0 +1,32 @@
+<html>
+
+<head>
+  <title></title>
+</head>
+
+<body>
+  <ul id="lista"></ul>
+  <input type="text" name="nome">
+  <button onClick="adicionar()">Adicionar</button>
+  <script>
+    var nomes = ["Diego", "Gabriel", "Lucas"];
+    var ul = document.getElementById('lista');
+    for (nome of nomes) {
+      var li = document.createElement('li');
+      li.innerHTML = nome;
+      ul.appendChild(li);
+    }
+
+    function adicionar() {
+      var nome = document.querySelector('input[name=nome]');
+      var li = document.createElement('li');
+      li.innerHTML = nome.value;
+      ul.appendChild(li);
+      nome.value = '';
+      nome.focus();
+
+    }
+  </script>
+</body>
+
+</html>
